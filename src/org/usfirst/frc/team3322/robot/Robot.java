@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -45,6 +46,8 @@ public class Robot extends IterativeRobot {
 		m_left.setInverted(true);
 		m_right.setInverted(true);
 		m_robotDrive = new DifferentialDrive(m_left, m_right);
+		SmartDashboard.putNumber("accelation_force", 1);
+		SmartDashboard.putNumber("rotation_force", 1);
 
 	}
 
@@ -82,9 +85,15 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		m_robotDrive.arcadeDrive(m_stick.getRawAxis(1), -m_stick.getRawAxis(4));
+		double acclePow  = SmartDashboard.getNumber("accelation_force", 1);
+		double rotatePow = SmartDashboard.getNumber("rotation_force", 1);
+		double accel  =  m_stick.getRawAxis(1) *Math.abs(Math.pow(m_stick.getRawAxis(1), acclePow-1));
+		double rotate = -m_stick.getRawAxis(4) *Math.abs(Math.pow(m_stick.getRawAxis(4), rotatePow-1));
+		m_robotDrive.arcadeDrive(accel, rotate);
+        SmartDashboard.putNumber("acceleration", accel);
+        SmartDashboard.putNumber("rotation", rotate);
 	}
-
+	
 	/**
 	 * This function is called periodically during test mode.
 	 */
