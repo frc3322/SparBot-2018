@@ -9,6 +9,7 @@ package org.usfirst.frc.team3322.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Timer;
@@ -33,6 +34,7 @@ public class Robot extends IterativeRobot {
 	SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
 	
 	DifferentialDrive m_robotDrive;
+	PowerDistributionPanel pdp = new PowerDistributionPanel();
 	
 	private Joystick m_stick = new Joystick(0);
 	private Timer m_timer = new Timer();
@@ -92,6 +94,9 @@ public class Robot extends IterativeRobot {
 		m_robotDrive.arcadeDrive(accel, rotate);
         SmartDashboard.putNumber("acceleration", accel);
         SmartDashboard.putNumber("rotation", rotate);
+       
+		SmartDashboard.putNumber("current", pdp.getCurrent(0));
+		SmartDashboard.putNumber("Voltage", pdp.getVoltage());
 	}
 	
 	/**
