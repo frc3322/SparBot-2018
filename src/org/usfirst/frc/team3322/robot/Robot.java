@@ -7,9 +7,13 @@
 
 package org.usfirst.frc.team3322.robot;
 
+import com.kauailabs.navx.frc.AHRS;
+
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Timer;
@@ -38,6 +42,8 @@ public class Robot extends IterativeRobot {
 	
 	private Joystick m_stick = new Joystick(0);
 	private Timer m_timer = new Timer();
+	
+	AHRS ahrs;		//navx 
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -50,6 +56,15 @@ public class Robot extends IterativeRobot {
 		m_robotDrive = new DifferentialDrive(m_left, m_right);
 		SmartDashboard.putNumber("accelation_force", 1);
 		SmartDashboard.putNumber("rotation_force", 1);
+		
+		try {
+	          /* Communicate w/navX-MXP via the MXP SPI Bus.                                     */
+	          /* Alternatively:  I2C.Port.kMXP, SerialPort.Port.kMXP or SerialPort.Port.kUSB     */
+	          /* See http://navx-mxp.kauailabs.com/guidance/selecting-an-interface/ for details. */
+	          ahrs = new AHRS(SPI.Port.kMXP); 
+	      } catch (RuntimeException ex ) {
+	          DriverStation.reportError("Error instantiating navX-MXP:  " + ex.getMessage(), true);
+	      }
 
 	}
 
@@ -97,6 +112,12 @@ public class Robot extends IterativeRobot {
        
 		SmartDashboard.putNumber("current", pdp.getCurrent(0));
 		SmartDashboard.putNumber("Voltage", pdp.getVoltage());
+		
+		SmartDashboard.putNumber(   "IMU_Accel_X",          ahrs.getWorldLinearAccelX());
+        SmartDashboard.putNumber(   "IMU_Accel_Y",          ahrs.getWorldLinearAccelY());
+        SmartDashboard.putBoolean(  "IMU_IsMoving",         ahrs.isMoving());
+        SmartDashboard.putBoolean(  "IMU_IsRotating",       ahrs.isRotating());
+        SmartDashboard.putNumber(   "IMU_Yaw",              ahrs.getYaw());
 	}
 	
 	/**
