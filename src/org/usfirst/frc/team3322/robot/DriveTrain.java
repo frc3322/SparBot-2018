@@ -3,6 +3,7 @@ package org.usfirst.frc.team3322.robot;
 import edu.wpi.first.wpilibj.DriverStation;
 //import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Preferences;
 //import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -20,6 +21,11 @@ public class DriveTrain extends Subsystem {
 	Talon m_rearLeft = new Talon(1);
 	SpeedControllerGroup m_left = new SpeedControllerGroup(m_frontLeft, m_rearLeft);
 
+	Preferences prefs;
+	double m_acclePow;
+	double m_rotatePow;
+	
+	
 	Talon m_frontRight = new Talon(2);
 	Talon m_rearRight = new Talon(3);
 	SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
@@ -39,9 +45,14 @@ public class DriveTrain extends Subsystem {
 	public DriveTrain() {
 		super();
 
-			m_left.setInverted(true);
-			m_right.setInverted(true);
-			m_robotDrive = new DifferentialDrive(m_left, m_right);
+		prefs = Preferences.getInstance();
+		m_acclePow = prefs.getDouble("acclePow", 1.0);
+		m_rotatePow = prefs.getDouble("rotatePow", 4.);
+
+		
+		m_left.setInverted(true);
+		m_right.setInverted(true);
+		m_robotDrive = new DifferentialDrive(m_left, m_right);
 
 //		m_leftEncoder.setDistancePerPulse((4.0 / 12.0 * Math.PI) / 360.0);
 //		m_rightEncoder.setDistancePerPulse((4.0 / 12.0 * Math.PI) / 360.0);
@@ -72,7 +83,7 @@ public class DriveTrain extends Subsystem {
 	@Override
 	protected void initDefaultCommand() {
 		
-		setDefaultCommand(new TankDrive());
+		setDefaultCommand(new TankDrive(m_acclePow, m_rotatePow));
         //SmartDashboard.putNumber("acceleration", accel);
         //SmartDashboard.putNumber("rotation", rotate);
        
