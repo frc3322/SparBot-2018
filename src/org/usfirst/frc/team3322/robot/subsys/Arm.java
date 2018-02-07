@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3322.robot;
+package org.usfirst.frc.team3322.robot.subsys;
 
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;

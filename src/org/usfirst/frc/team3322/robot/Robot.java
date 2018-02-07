@@ -7,7 +7,8 @@
 
 package org.usfirst.frc.team3322.robot;
 
-import org.usfirst.frc.team3322.robot.DriveTrain;
+import org.usfirst.frc.team3322.robot.subsys.DriveTrain;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Scheduler;

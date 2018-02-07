@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3322.robot;
+package org.usfirst.frc.team3322.robot.subsys;
 
 import edu.wpi.first.wpilibj.DriverStation;
 //import edu.wpi.first.wpilibj.Encoder;
@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team3322.robot.TankDrive;
+import org.usfirst.frc.team3322.robot.commands.TankDrive;
 
 import com.kauailabs.navx.frc.AHRS;
 
@@ -30,7 +30,7 @@ public class DriveTrain extends Subsystem {
 	Talon m_rearRight = new Talon(3);
 	SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
 
-	DifferentialDrive m_robotDrive;
+	public DifferentialDrive m_robotDrive;
 //	PowerDistributionPanel pdp = new PowerDistributionPanel();
 	
 //	private Encoder m_leftEncoder = new Encoder(1, 2);
