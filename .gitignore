@@ -1,0 +1,6 @@
+.git
+.classpath
+.project
+build/jars
+build.properties
+build.xml
