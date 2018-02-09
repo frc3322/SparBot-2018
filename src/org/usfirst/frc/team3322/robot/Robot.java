@@ -7,9 +7,11 @@
 
 package org.usfirst.frc.team3322.robot;
 
+import org.usfirst.frc.team3322.robot.subsys.Arm;
 import org.usfirst.frc.team3322.robot.subsys.DriveTrain;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
@@ -24,6 +26,7 @@ public class Robot extends IterativeRobot {
 
 	public static DriveTrain m_drivetrain;
 	public static OI m_OI;
+	public static Arm m_arm;
 		
 	/**
 	 * This function is run when the robot is first started up and should be
