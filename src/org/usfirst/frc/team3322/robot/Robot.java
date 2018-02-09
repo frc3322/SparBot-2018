@@ -8,9 +8,7 @@
 package org.usfirst.frc.team3322.robot;
 
 import org.usfirst.frc.team3322.robot.subsys.DriveTrain;
-
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -25,7 +23,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot { 
 
 	public static DriveTrain m_drivetrain;
-		
+	public static OI m_OI;
 		
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -35,6 +33,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		
 		m_drivetrain = new DriveTrain();
+		m_OI = new OI();
 		SmartDashboard.putData(m_drivetrain);
 	}
 

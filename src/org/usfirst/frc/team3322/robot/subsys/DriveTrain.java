@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 import org.usfirst.frc.team3322.robot.commands.TankDrive;
 
 import com.kauailabs.navx.frc.AHRS;
@@ -38,21 +37,13 @@ public class DriveTrain extends Subsystem {
 	
 	AHRS ahrs;
 	
-	public Joystick m_stick = new Joystick(0);
-	
-	
 	
 	public DriveTrain() {
 		super();
 
 		prefs = Preferences.getInstance();
-		m_acclePow = prefs.getDouble("acclePow", 1.0);
-		m_rotatePow = prefs.getDouble("rotatePow", 4.);
-
-		
-		m_left.setInverted(true);
-		m_right.setInverted(true);
-		m_robotDrive = new DifferentialDrive(m_left, m_right);
+		m_acclePow = prefs.getDouble("acclePow", 2.0);
+		m_rotatePow = prefs.getDouble("rotatePow", 2.);
 
 //		m_leftEncoder.setDistancePerPulse((4.0 / 12.0 * Math.PI) / 360.0);
 //		m_rightEncoder.setDistancePerPulse((4.0 / 12.0 * Math.PI) / 360.0);
@@ -89,6 +80,16 @@ public class DriveTrain extends Subsystem {
        
 	}
 
+	public void drive(Joystick joy) { 		
+		double accel  =  joy.getRawAxis(1)*Math.abs(Math.pow(joy.getRawAxis(1), m_acclePow-1));
+		double rotate = -joy.getRawAxis(4)*Math.abs(Math.pow(joy.getRawAxis(4), m_rotatePow-1));
+		drive(accel, rotate);
+	}
+	
+	public void drive(double left, double right) {
+		m_robotDrive.tankDrive(left, right);
+	}
+		
 	public void log() {
 //		SmartDashboard.putNumber("Left Distance", m_leftEncoder.getDistance());
 //		SmartDashboard.putNumber("Right Distance", m_rightEncoder.getDistance());
