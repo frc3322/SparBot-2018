@@ -2,7 +2,9 @@
 .classpath
 .project
 build/jars
-build/class
 build.properties
 build.xml
 /bin/
+*.jar
+*.class
+
