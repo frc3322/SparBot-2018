@@ -78,6 +78,6 @@ public class Robot extends IterativeRobot {
 	
 	private void log() {
 		m_drivetrain.log();
-
+		m_arm.log();
 	}
 }
