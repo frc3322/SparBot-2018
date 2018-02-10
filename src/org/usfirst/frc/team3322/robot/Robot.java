@@ -39,6 +39,7 @@ public class Robot extends IterativeRobot {
 		
 		m_drivetrain = new DriveTrain();
 		m_OI = new OI();
+		m_arm = new Arm();
 		SmartDashboard.putData(m_drivetrain);
 	}
 
@@ -88,5 +89,6 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putBoolean(  "B button",		bbutt.get());	
         SmartDashboard.putBoolean(  "X button",		xbutt.get());
         SmartDashboard.putBoolean(  "Y button",		ybutt.get());
+        m_arm.log();
 	}
 }
