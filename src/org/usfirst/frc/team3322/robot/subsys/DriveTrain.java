@@ -104,7 +104,7 @@ public class DriveTrain extends Subsystem {
         SmartDashboard.putBoolean(  "IMU_IsMoving",         ahrs.isMoving());
         SmartDashboard.putBoolean(  "IMU_IsRotating",       ahrs.isRotating());
         SmartDashboard.putNumber(   "IMU_Yaw",              ahrs.getYaw());
-	
+        
 	}
 
 }

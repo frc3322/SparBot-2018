@@ -10,6 +10,8 @@ package org.usfirst.frc.team3322.robot;
 import org.usfirst.frc.team3322.robot.subsys.Arm;
 import org.usfirst.frc.team3322.robot.subsys.DriveTrain;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -77,6 +79,14 @@ public class Robot extends IterativeRobot {
 	
 	private void log() {
 		m_drivetrain.log();
-
+		Joystick joystick = m_OI.getJoystick();
+		JoystickButton abutt = new JoystickButton(joystick, 1);
+		JoystickButton bbutt = new JoystickButton(joystick, 2);
+		JoystickButton xbutt = new JoystickButton(joystick, 3);
+		JoystickButton ybutt = new JoystickButton(joystick, 4);
+        SmartDashboard.putBoolean(  "A button",		abutt.get());
+        SmartDashboard.putBoolean(  "B button",		bbutt.get());	
+        SmartDashboard.putBoolean(  "X button",		xbutt.get());
+        SmartDashboard.putBoolean(  "Y button",		ybutt.get());
 	}
 }
