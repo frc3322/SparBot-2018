@@ -37,6 +37,7 @@ public class Robot extends IterativeRobot {
 		
 		m_drivetrain = new DriveTrain();
 		m_OI = new OI();
+		m_arm = new Arm();
 		SmartDashboard.putData(m_drivetrain);
 	}
 
