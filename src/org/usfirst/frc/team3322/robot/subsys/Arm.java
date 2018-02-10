@@ -1,7 +1,7 @@
 package org.usfirst.frc.team3322.robot.subsys;
 
+//import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.interfaces.Potentiometer;
@@ -36,6 +36,10 @@ public class Arm extends Subsystem {
 		m_arm.set(input);
 	}
 
+	public double armPosition() {
+		return pot.get();
+	}
+	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
