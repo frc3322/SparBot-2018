@@ -11,6 +11,7 @@ public class Release extends TimedCommand {
 		requires(Robot.m_arm);
 	}
 	
+	@Override
 	protected void initialize() {
 		Robot.m_arm.close();
 	}

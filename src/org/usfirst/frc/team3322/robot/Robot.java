@@ -8,6 +8,7 @@
 package org.usfirst.frc.team3322.robot;
 
 import org.usfirst.frc.team3322.robot.subsys.Arm;
+import org.usfirst.frc.team3322.robot.subsys.Climber;
 import org.usfirst.frc.team3322.robot.subsys.DriveTrain;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
@@ -29,6 +30,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain m_drivetrain;
 	public static OI m_OI;
 	public static Arm m_arm;
+	public static Climber m_climber;
 		
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -40,6 +42,7 @@ public class Robot extends IterativeRobot {
 		m_drivetrain = new DriveTrain();
 		m_OI = new OI();
 		m_arm = new Arm();
+		m_climber = new Climber();
 		SmartDashboard.putData(m_drivetrain);
 	}
 
@@ -90,5 +93,6 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putBoolean(  "X button",		xbutt.get());
         SmartDashboard.putBoolean(  "Y button",		ybutt.get());
         m_arm.log();
+        m_climber.log();
 	}
 }

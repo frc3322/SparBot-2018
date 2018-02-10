@@ -4,8 +4,12 @@ import org.usfirst.frc.team3322.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Grab extends Command {;
-
+public class Climb extends Command {
+	
+	public Climb() {
+		requires(Robot.m_climber);
+	}
+	
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
@@ -14,6 +18,7 @@ public class Grab extends Command {;
 	
 	@Override
 	protected void initialize() {
-		Robot.m_arm.close();
+		Robot.m_climber.pull();
 	}
+
 }
