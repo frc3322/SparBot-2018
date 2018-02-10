@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Arm extends Subsystem {
 	
 	Talon m_arm = new Talon(4);
-	Solenoid armSolenoid = new Solenoid(1);
+	//Solenoid armSolenoid = new Solenoid(1);
 	
 	Potentiometer pot;
     
@@ -25,11 +25,11 @@ public class Arm extends Subsystem {
 	}
 	
 	public void open() {
-		armSolenoid.set(true);
+		//armSolenoid.set(true);
 	}
 	
 	public void close() {
-		armSolenoid.set(false);
+		//armSolenoid.set(false);
 	}
 	
 	public void raiseOrLower(double input) {
