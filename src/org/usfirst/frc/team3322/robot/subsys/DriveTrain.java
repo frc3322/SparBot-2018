@@ -87,7 +87,7 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	public void drive(double left, double right) {
-		m_robotDrive.tankDrive(left, right);
+		m_robotDrive.arcadeDrive(left, right);
 	}
 		
 	public void log() {
