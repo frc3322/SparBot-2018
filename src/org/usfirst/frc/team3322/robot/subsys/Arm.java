@@ -1,7 +1,7 @@
 package org.usfirst.frc.team3322.robot.subsys;
 
-//import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.interfaces.Potentiometer;
@@ -13,7 +13,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Arm extends Subsystem {
 	
 	Talon m_arm = new Talon(4);
-	//Solenoid armSolenoid = new Solenoid(1);
+	DoubleSolenoid exampleDouble = new DoubleSolenoid(0, 1);
+	
 	
 	Potentiometer pot;
     
@@ -25,11 +26,11 @@ public class Arm extends Subsystem {
 	}
 	
 	public void open() {
-		//armSolenoid.set(true);
+		exampleDouble.set(DoubleSolenoid.Value.kForward);
 	}
 	
 	public void close() {
-		//armSolenoid.set(false);
+		exampleDouble.set(DoubleSolenoid.Value.kReverse);
 	}
 	
 	public void raiseOrLower(double input) {

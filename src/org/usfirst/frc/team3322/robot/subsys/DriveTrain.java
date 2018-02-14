@@ -1,7 +1,7 @@
 package org.usfirst.frc.team3322.robot.subsys;
 
 import edu.wpi.first.wpilibj.DriverStation;
-//import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Preferences;
 //import edu.wpi.first.wpilibj.PowerDistributionPanel;
@@ -32,8 +32,8 @@ public class DriveTrain extends Subsystem {
 	public DifferentialDrive m_robotDrive;
 //	PowerDistributionPanel pdp = new PowerDistributionPanel();
 	
-//	private Encoder m_leftEncoder = new Encoder(1, 2);
-//	private Encoder m_rightEncoder = new Encoder(3, 4);
+	private Encoder m_leftEncoder = new Encoder(1, 2);
+	private Encoder m_rightEncoder = new Encoder(3, 4);
 	
 	AHRS ahrs;
 	
@@ -91,10 +91,10 @@ public class DriveTrain extends Subsystem {
 	}
 		
 	public void log() {
-//		SmartDashboard.putNumber("Left Distance", m_leftEncoder.getDistance());
-//		SmartDashboard.putNumber("Right Distance", m_rightEncoder.getDistance());
-//		SmartDashboard.putNumber("Left Speed", m_leftEncoder.getRate());
-//		SmartDashboard.putNumber("Right Speed", m_rightEncoder.getRate());
+		SmartDashboard.putNumber("Left Distance", m_leftEncoder.getDistance());
+		SmartDashboard.putNumber("Right Distance", m_rightEncoder.getDistance());
+		SmartDashboard.putNumber("Left Speed", m_leftEncoder.getRate());
+		SmartDashboard.putNumber("Right Speed", m_rightEncoder.getRate());
 
 //		SmartDashboard.putNumber("current", pdp.getCurrent(0));
 //		SmartDashboard.putNumber("Voltage", pdp.getVoltage());
