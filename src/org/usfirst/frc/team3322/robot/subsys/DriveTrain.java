@@ -16,8 +16,8 @@ import org.usfirst.frc.team3322.robot.commands.TankDrive;
 import com.kauailabs.navx.frc.AHRS;
 
 public class DriveTrain extends Subsystem {
-	Talon m_frontLeft = new Talon(0);
-	Talon m_rearLeft = new Talon(1);
+	Talon m_frontLeft = new Talon(2);
+	Talon m_rearLeft = new Talon(3);
 	SpeedControllerGroup m_left = new SpeedControllerGroup(m_frontLeft, m_rearLeft);
 
 	Preferences prefs;
@@ -25,8 +25,8 @@ public class DriveTrain extends Subsystem {
 	double m_rotatePow;
 	
 	
-	Talon m_frontRight = new Talon(2);
-	Talon m_rearRight = new Talon(3);
+	Talon m_frontRight = new Talon(0);
+	Talon m_rearRight = new Talon(1);
 	SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
 
 	public DifferentialDrive m_robotDrive;

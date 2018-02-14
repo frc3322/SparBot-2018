@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Climber extends Subsystem {
 	
-	Talon m_extand = new Talon(5);
+	Talon m_extand = new Talon(7);
 	Talon m_winch1 = new Talon(6);
-	Talon m_winch2 = new Talon(7);
+	Talon m_winch2 = new Talon(5);
 	SpeedControllerGroup m_winch = new SpeedControllerGroup(m_winch1, m_winch2);
 	
 	@Override
