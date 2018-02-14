@@ -2,6 +2,7 @@ package org.usfirst.frc.team3322.robot;
 
 import org.usfirst.frc.team3322.robot.commands.Grab;
 import org.usfirst.frc.team3322.robot.commands.MoveArm;
+import org.usfirst.frc.team3322.robot.commands.Off;
 import org.usfirst.frc.team3322.robot.commands.Release;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -26,10 +27,11 @@ public class OI {
 		JoystickButton xbutt = new JoystickButton(m_joystick, 3);
 		JoystickButton ybutt = new JoystickButton(m_joystick, 4);
 
-		/////ybutt.whenPressed(new MoveArm(0.5));
-		////abutt.whenPressed(new MoveArm(-0.5));
-		///xbutt.whenPressed(new Grab());
-		//bbutt.whenPressed(new Release());
+		//ybutt.whenPressed(new MoveArm(0.5));
+		//abutt.whenPressed(new MoveArm(-0.5));
+		xbutt.whenPressed(new Grab());
+		bbutt.whenPressed(new Release());
+		abutt.whenPressed(new Off());
 		
 	}
 	public Joystick getJoystick() {

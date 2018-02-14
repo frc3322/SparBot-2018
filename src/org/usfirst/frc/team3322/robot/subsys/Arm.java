@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Arm extends Subsystem {
 	
 	Talon m_arm = new Talon(4);
-	DoubleSolenoid exampleDouble = new DoubleSolenoid(0, 1);
+	DoubleSolenoid handSolinoid = new DoubleSolenoid(0, 1);
 	
 	
 	Potentiometer pot;
@@ -23,14 +23,20 @@ public class Arm extends Subsystem {
 	
 	public Arm() {
 		pot = new AnalogPotentiometer(0, 270);
+		handSolinoid.set(DoubleSolenoid.Value.kOff);
 	}
 	
 	public void open() {
-		exampleDouble.set(DoubleSolenoid.Value.kForward);
+		handSolinoid.set(DoubleSolenoid.Value.kForward);
 	}
+
+	public void Off() {
+		handSolinoid.set(DoubleSolenoid.Value.kOff);
+	
+	}	
 	
 	public void close() {
-		exampleDouble.set(DoubleSolenoid.Value.kReverse);
+		handSolinoid.set(DoubleSolenoid.Value.kReverse);
 	}
 	
 	public void raiseOrLower(double input) {
