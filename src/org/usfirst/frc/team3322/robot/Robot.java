@@ -43,12 +43,11 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		
 		m_drivetrain = new DriveTrain();
-		m_OI = new OI();
 		m_arm = new Arm();
 		m_climber = new Climber();
+		m_OI = new OI();
 		SmartDashboard.putData(m_drivetrain);
 		
-        CameraServer.getInstance().startAutomaticCapture();
         UsbCamera camera = new UsbCamera("cam0",0);
         camera.setFPS(15);
         camera.setResolution(320, 240); //320 = width, 240 = height
