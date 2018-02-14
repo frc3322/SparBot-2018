@@ -10,6 +10,9 @@ package org.usfirst.frc.team3322.robot;
 import org.usfirst.frc.team3322.robot.subsys.Arm;
 import org.usfirst.frc.team3322.robot.subsys.Climber;
 import org.usfirst.frc.team3322.robot.subsys.DriveTrain;
+
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -44,6 +47,12 @@ public class Robot extends IterativeRobot {
 		m_arm = new Arm();
 		m_climber = new Climber();
 		SmartDashboard.putData(m_drivetrain);
+		
+        CameraServer.getInstance().startAutomaticCapture();
+        UsbCamera camera = new UsbCamera("cam0",0);
+        camera.setFPS(15);
+        camera.setResolution(320, 240); //320 = width, 240 = height
+        CameraServer.getInstance().startAutomaticCapture(camera);
 	}
 
 	/**
