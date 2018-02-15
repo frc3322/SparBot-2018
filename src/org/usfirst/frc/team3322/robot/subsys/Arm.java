@@ -30,7 +30,7 @@ public class Arm extends Subsystem {
 		handSolinoid.set(DoubleSolenoid.Value.kForward);
 	}
 
-	public void Off() {
+	public void off() {
 		handSolinoid.set(DoubleSolenoid.Value.kOff);
 	
 	}	

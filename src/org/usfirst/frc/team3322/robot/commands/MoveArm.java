@@ -6,16 +6,15 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class MoveArm extends Command {
 
-	Arm arm = new Arm();
 	double m_speed;
 	public MoveArm(double speed) {
 		m_speed = speed;
 		requires(Robot.m_arm);
 	}
 	
-	@Override
+	/*@Override
 	protected boolean isFinished() {
-		double pos = arm.armPosition();
+		double pos = Robot.m_arm.armPosition();
 		if(pos >= 260||pos <= 10){
 			Robot.m_arm.raiseOrLower(0);
 			return true;
@@ -23,7 +22,7 @@ public class MoveArm extends Command {
 			// TODO Auto-generated method stub
 			return false;
 		}
-	}
+	}*/
 	
 	@Override
 	protected void initialize() {
@@ -33,5 +32,11 @@ public class MoveArm extends Command {
 	@Override
 	protected void end() {
 			Robot.m_arm.raiseOrLower(0);
+	}
+
+	@Override
+	protected boolean isFinished() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

@@ -6,6 +6,10 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Grab extends Command {;
 
+	public Grab() {
+		requires(Robot.m_arm);
+	}
+
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub

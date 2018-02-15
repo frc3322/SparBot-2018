@@ -7,13 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Off extends Command {
 
 	public Off() {
-		super(1);
 		requires(Robot.m_arm);
 	}
 	
 	@Override
 	protected void initialize() {
-		Robot.m_arm.open();
+		Robot.m_arm.off();
 	}
 	
 	@Override
