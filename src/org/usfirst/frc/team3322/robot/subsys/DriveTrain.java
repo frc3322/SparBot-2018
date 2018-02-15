@@ -45,8 +45,8 @@ public class DriveTrain extends Subsystem {
 		m_acclePow = prefs.getDouble("acclePow", 2.0);
 		m_rotatePow = prefs.getDouble("rotatePow", 2.);
 
-//		m_leftEncoder.setDistancePerPulse((4.0 / 12.0 * Math.PI) / 360.0);
-//		m_rightEncoder.setDistancePerPulse((4.0 / 12.0 * Math.PI) / 360.0);
+		m_leftEncoder.setDistancePerPulse((4.0 / 12.0 * Math.PI) / 360.0);
+		m_rightEncoder.setDistancePerPulse((4.0 / 12.0 * Math.PI) / 360.0);
 		
 		try {
 	          /* Communicate w/navX-MXP via the MXP SPI Bus.                                     */
@@ -64,8 +64,8 @@ public class DriveTrain extends Subsystem {
 		m_robotDrive = new DifferentialDrive(m_left, m_right);
 		m_robotDrive.setSafetyEnabled(false);
 		addChild("DifferentialDrive", m_robotDrive);
-//		addChild("Left Encoder", m_leftEncoder);
-//		addChild("Right Encoder", m_rightEncoder);
+		addChild("Left Encoder", m_leftEncoder);
+		addChild("Right Encoder", m_rightEncoder);
 		
 	}
 	
