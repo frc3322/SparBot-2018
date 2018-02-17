@@ -27,12 +27,14 @@ public class OI {
 		JoystickButton xbutt = new JoystickButton(m_joystick, 3);
 		JoystickButton ybutt = new JoystickButton(m_joystick, 4);
 
-		ybutt.whenPressed(new MoveArm(0.5));
+		ybutt.whenPressed(new MoveArm(-0.5));
 		ybutt.whenReleased(new MoveArm(0));
-		abutt.whenPressed(new MoveArm(-0.5));
+		
+		abutt.whenPressed(new MoveArm(0.5));
 		abutt.whenReleased(new MoveArm(0));
-		xbutt.whenPressed(new Grab());
-		bbutt.whenPressed(new Release());
+		
+		xbutt.whenPressed(new Release());
+		bbutt.whenPressed(new Grab());
 
 		
 	}
