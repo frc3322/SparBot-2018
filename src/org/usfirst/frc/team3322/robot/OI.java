@@ -1,9 +1,12 @@
 package org.usfirst.frc.team3322.robot;
 
+import org.usfirst.frc.team3322.robot.commands.Climb;
+import org.usfirst.frc.team3322.robot.commands.ExtendTape;
 import org.usfirst.frc.team3322.robot.commands.Grab;
 import org.usfirst.frc.team3322.robot.commands.MoveArm;
 import org.usfirst.frc.team3322.robot.commands.Off;
 import org.usfirst.frc.team3322.robot.commands.Release;
+import org.usfirst.frc.team3322.robot.commands.StopClimb;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -35,7 +38,12 @@ public class OI {
 		
 		xbutt.whenPressed(new Release());
 		bbutt.whenPressed(new Grab());
-
+		
+		r1.whenPressed(new ExtendTape());
+		r1.whenReleased(new StopClimb());
+		
+		l1.whenPressed(new Climb());
+		l1.whenReleased(new StopClimb());
 		
 	}
 	public Joystick getJoystick() {
