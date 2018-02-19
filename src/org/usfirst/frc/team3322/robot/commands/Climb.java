@@ -17,6 +17,11 @@ public class Climb extends Command {
 	}
 	
 	@Override
+	protected void end() {
+		Robot.m_climber.winchStop();
+	}
+	
+	@Override
 	protected void initialize() {
 		Robot.m_climber.pull();
 	}

@@ -39,12 +39,9 @@ public class OI {
 		xbutt.whenPressed(new Release());
 		bbutt.whenPressed(new Grab());
 		
-		r1.whenPressed(new ExtendTape());
-		r1.whenReleased(new StopClimb());
+		r1.whileHeld(new ExtendTape());
 		
-		l1.whenPressed(new Climb());
-		l1.whenReleased(new StopClimb());
-		
+		l1.whileHeld(new Climb());		
 	}
 	public Joystick getJoystick() {
 		return m_joystick;
