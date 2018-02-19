@@ -17,6 +17,11 @@ public class ExtendTape extends Command {
 	}
 	
 	@Override
+	protected void end() {
+		Robot.m_climber.extendStop();
+	}
+	
+	@Override
 	protected void initialize() {
 		Robot.m_climber.extend();
 	}
