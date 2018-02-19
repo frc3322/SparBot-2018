@@ -6,7 +6,6 @@ import org.usfirst.frc.team3322.robot.commands.Grab;
 import org.usfirst.frc.team3322.robot.commands.MoveArm;
 import org.usfirst.frc.team3322.robot.commands.Off;
 import org.usfirst.frc.team3322.robot.commands.Release;
-import org.usfirst.frc.team3322.robot.commands.StopClimb;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;

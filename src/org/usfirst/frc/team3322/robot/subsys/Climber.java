@@ -22,7 +22,7 @@ public class Climber extends Subsystem {
 		
 	}
 	
-	public void pull() {
+	public void winchPull() {
 		m_winch.set(1);
 	}
 	

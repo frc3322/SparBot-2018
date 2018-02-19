@@ -23,7 +23,7 @@ public class Climb extends Command {
 	
 	@Override
 	protected void initialize() {
-		Robot.m_climber.pull();
+		Robot.m_climber.winchPull();
 	}
 
 }

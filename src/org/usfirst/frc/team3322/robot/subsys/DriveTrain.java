@@ -42,8 +42,8 @@ public class DriveTrain extends Subsystem {
 		super();
 
 		prefs = Preferences.getInstance();
-		m_acclePow = prefs.getDouble("acclePow", 2.0);
-		m_rotatePow = prefs.getDouble("rotatePow", 2.);
+		m_acclePow = prefs.getDouble("acclePow", 3);
+		m_rotatePow = prefs.getDouble("rotatePow", 3);
 
 		m_leftEncoder.setDistancePerPulse(0.01309);
 		m_rightEncoder.setDistancePerPulse(0.01309);
@@ -105,6 +105,23 @@ public class DriveTrain extends Subsystem {
         SmartDashboard.putBoolean(  "IMU_IsRotating",       ahrs.isRotating());
         SmartDashboard.putNumber(   "IMU_Yaw",              ahrs.getYaw());
         
+	}
+
+
+
+	public double currentDistance() {
+		
+		return (m_leftEncoder.getDistance() + m_rightEncoder.getDistance()) / 2;
+	}
+	
+	public void reset() {
+		ahrs.reset();
+		m_leftEncoder.reset();
+		m_rightEncoder.reset();
+	}
+	
+	public void tankDrive(double left, double right) {
+		m_robotDrive.tankDrive(left, right);
 	}
 
 }
