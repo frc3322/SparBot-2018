@@ -55,5 +55,10 @@ public class Arm extends Subsystem {
     public void log() {
     	 SmartDashboard.putNumber("arm angle", pot.get());
     }
+
+	public double getAngle() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
 
