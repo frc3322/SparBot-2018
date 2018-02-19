@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3322.robot;
 
 import org.usfirst.frc.team3322.robot.commands.Climb;
+import org.usfirst.frc.team3322.robot.commands.DriveDistance;
 import org.usfirst.frc.team3322.robot.commands.ExtendTape;
 import org.usfirst.frc.team3322.robot.commands.Grab;
 import org.usfirst.frc.team3322.robot.commands.MoveArm;
@@ -39,9 +40,12 @@ public class OI {
 		bbutt.whenPressed(new Grab());
 		
 		r1.whileHeld(new ExtendTape());
-		
 		l1.whileHeld(new Climb());		
+		
+		r2.whenPressed(new DriveDistance(24));
+		
 	}
+	
 	public Joystick getJoystick() {
 		return m_joystick;
 	}
