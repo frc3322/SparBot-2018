@@ -17,7 +17,7 @@ public class DriveDistance extends Command {
 
 	public DriveDistance(double distance) {
 		requires(Robot.m_drivetrain);
-		m_pid = new PIDController(0.9, 0, 0, new PIDSource() {
+		m_pid = new PIDController(4, 0, 0, new PIDSource() {
 			PIDSourceType m_sourceType = PIDSourceType.kDisplacement;
 
 			@Override

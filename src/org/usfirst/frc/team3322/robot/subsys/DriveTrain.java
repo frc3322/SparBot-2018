@@ -32,8 +32,8 @@ public class DriveTrain extends Subsystem {
 	public DifferentialDrive m_robotDrive;
 //	PowerDistributionPanel pdp = new PowerDistributionPanel();
 	
-	private Encoder m_leftEncoder = new Encoder(1, 2);
-	private Encoder m_rightEncoder = new Encoder(3, 4);
+	private Encoder m_leftEncoder = new Encoder(0, 1);
+	private Encoder m_rightEncoder = new Encoder(2, 3);
 	
 	AHRS ahrs;
 	
@@ -45,7 +45,7 @@ public class DriveTrain extends Subsystem {
 		m_acclePow = prefs.getDouble("acclePow", 3);
 		m_rotatePow = prefs.getDouble("rotatePow", 3);
 
-		m_leftEncoder.setDistancePerPulse(0.01309);
+		m_leftEncoder.setDistancePerPulse(-0.01309);
 		m_rightEncoder.setDistancePerPulse(0.01309);
 		
 		try {

@@ -59,6 +59,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		
 	}
 
 	/**
@@ -74,6 +75,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopInit() {
+		m_drivetrain.reset();
 	}
 
 	/**
@@ -91,15 +93,6 @@ public class Robot extends IterativeRobot {
 	
 	private void log() {
 		m_drivetrain.log();
-		Joystick joystick = m_OI.getJoystick();
-		JoystickButton abutt = new JoystickButton(joystick, 1);
-		JoystickButton bbutt = new JoystickButton(joystick, 2);
-		JoystickButton xbutt = new JoystickButton(joystick, 3);
-		JoystickButton ybutt = new JoystickButton(joystick, 4);
-        SmartDashboard.putBoolean(  "A button",		abutt.get());
-        SmartDashboard.putBoolean(  "B button",		bbutt.get());	
-        SmartDashboard.putBoolean(  "X button",		xbutt.get());
-        SmartDashboard.putBoolean(  "Y button",		ybutt.get());
         m_arm.log();
         m_climber.log();
 	}
