@@ -17,8 +17,8 @@ public class OI {
 	
 
 	public OI() {
-		JoystickButton dpadUp = new JoystickButton(m_joystick, 5);
-		JoystickButton dpadRight = new JoystickButton(m_joystick, 6);
+		JoystickButton lb = new JoystickButton(m_joystick, 5);
+		JoystickButton rb = new JoystickButton(m_joystick, 6);
 		JoystickButton dpadDown = new JoystickButton(m_joystick, 7);
 		JoystickButton dpadLeft = new JoystickButton(m_joystick, 8);
 		JoystickButton l2 = new JoystickButton(m_joystick, 9);
@@ -39,8 +39,8 @@ public class OI {
 		xbutt.whenPressed(new Release());
 		bbutt.whenPressed(new Grab());
 		
-		r1.whileHeld(new ExtendTape());
-		l1.whileHeld(new Climb());		
+		rb.whileHeld(new ExtendTape());
+		lb.whileHeld(new Climb());		
 		
 		r2.whenPressed(new DriveDistance(24));
 		

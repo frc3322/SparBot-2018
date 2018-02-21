@@ -23,7 +23,7 @@ public class Climber extends Subsystem {
 	}
 	
 	public void winchPull() {
-		m_winch.set(1);
+		m_winch.set(-1);
 	}
 	
 	public void winchStop() {
