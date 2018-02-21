@@ -20,7 +20,7 @@ public class DriveTrain extends Subsystem {
 	Talon m_rearLeft = new Talon(3);
 	SpeedControllerGroup m_left = new SpeedControllerGroup(m_frontLeft, m_rearLeft);
 
-	Preferences prefs;
+	//Preferences prefs;
 	double m_acclePow;
 	double m_rotatePow;
 	
@@ -41,10 +41,13 @@ public class DriveTrain extends Subsystem {
 	public DriveTrain() {
 		super();
 
-		prefs = Preferences.getInstance();
-		m_acclePow = prefs.getDouble("acclePow", 3);
-		m_rotatePow = prefs.getDouble("rotatePow", 3);
-
+		//prefs = Preferences.getInstance();
+		//m_acclePow = prefs.getDouble("acclePow", 3);
+		//m_rotatePow = prefs.getDouble("rotatePow", 3);
+		
+		m_acclePow = SmartDashboard.getNumber("accle Pow", 3);
+		m_rotatePow = SmartDashboard.getNumber("rotate Pow", 3);
+		
 		m_leftEncoder.setDistancePerPulse(-0.01309);
 		m_rightEncoder.setDistancePerPulse(0.01309);
 		
