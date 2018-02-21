@@ -19,12 +19,13 @@ public class Climb extends Command {
 	@Override
 	protected void end() {
 		Robot.m_climber.winchStop();
+		Robot.m_climber.extendStop();
 	}
+	
 	
 	@Override
 	protected void initialize() {
 		Robot.m_climber.winchPull();
-		Robot.m_climber.tapeRetract();
 	}
 
 }

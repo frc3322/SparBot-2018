@@ -7,6 +7,8 @@ import org.usfirst.frc.team3322.robot.commands.Grab;
 import org.usfirst.frc.team3322.robot.commands.MoveArm;
 import org.usfirst.frc.team3322.robot.commands.Off;
 import org.usfirst.frc.team3322.robot.commands.Release;
+import org.usfirst.frc.team3322.robot.commands.TapeRetract;
+import org.usfirst.frc.team3322.robot.subsys.Climber;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -19,8 +21,8 @@ public class OI {
 	public OI() {
 		JoystickButton lb = new JoystickButton(m_joystick, 5);
 		JoystickButton rb = new JoystickButton(m_joystick, 6);
-		JoystickButton dpadDown = new JoystickButton(m_joystick, 7);
-		JoystickButton dpadLeft = new JoystickButton(m_joystick, 8);
+		JoystickButton backButt = new JoystickButton(m_joystick, 7);
+		JoystickButton startButt = new JoystickButton(m_joystick, 8);
 		JoystickButton l2 = new JoystickButton(m_joystick, 9);
 		JoystickButton r2 = new JoystickButton(m_joystick, 10);
 		JoystickButton l1 = new JoystickButton(m_joystick, 11);
@@ -42,7 +44,8 @@ public class OI {
 		rb.whileHeld(new ExtendTape());
 		lb.whileHeld(new Climb());		
 		
-		r2.whenPressed(new DriveDistance(24));
+		backButt.whenPressed(new DriveDistance(24));
+		startButt.whileHeld(new TapeRetract());
 		
 	}
 	
