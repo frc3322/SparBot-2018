@@ -24,6 +24,7 @@ public class Climb extends Command {
 	@Override
 	protected void initialize() {
 		Robot.m_climber.winchPull();
+		Robot.m_climber.tapeRetract();
 	}
 
 }

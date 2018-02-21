@@ -34,6 +34,10 @@ public class Climber extends Subsystem {
 	public void extendStop() {
 		m_extend.set(0);
 	}
+	
+	public void tapeRetract () {
+		m_extend.set(-1);
+	}
 
 	
 	public void log() {
