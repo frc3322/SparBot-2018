@@ -22,7 +22,7 @@ public class Arm extends Subsystem {
     // here. Call these from Commands.
 	
 	public Arm() {
-		pot = new AnalogPotentiometer(0, 270);
+		pot = new AnalogPotentiometer(0, 300);
 		handSolinoid.set(DoubleSolenoid.Value.kOff);
 	}
 	

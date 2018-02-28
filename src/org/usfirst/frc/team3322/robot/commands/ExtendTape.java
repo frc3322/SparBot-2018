@@ -18,12 +18,12 @@ public class ExtendTape extends Command {
 	
 	@Override
 	protected void end() {
-		Robot.m_climber.extendStop();
+		Robot.m_climber.tapeStop();
 	}
 	
 	@Override
 	protected void initialize() {
-		Robot.m_climber.extend();
+		Robot.m_climber.tapeExtend();
 	}
 
 }

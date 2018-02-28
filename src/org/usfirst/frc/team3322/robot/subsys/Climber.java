@@ -17,7 +17,7 @@ public class Climber extends Subsystem {
 
 	}
 	
-	public void extend() {
+	public void tapeExtend() {
 		m_tapeMoter.set(1);
 		
 	}
@@ -31,7 +31,7 @@ public class Climber extends Subsystem {
 		
 	}
 	
-	public void extendStop() {
+	public void tapeStop() {
 		m_tapeMoter.set(0);
 	}
 

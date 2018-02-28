@@ -18,7 +18,7 @@ public class TapeRetract extends Command {
 	
 	@Override
 	protected void end() {
-		Robot.m_climber.extendStop();
+		Robot.m_climber.tapeStop();
 	}
 	
 	@Override
