@@ -1,7 +1,6 @@
 package org.usfirst.frc.team3322.robot.commands;
 
 import org.usfirst.frc.team3322.robot.Robot;
-import org.usfirst.frc.team3322.robot.subsys.Arm;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class MoveArm extends Command {
