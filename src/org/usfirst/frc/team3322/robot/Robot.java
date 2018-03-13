@@ -51,10 +51,10 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("accle Pow", 3);
 		SmartDashboard.putNumber("rotate Pow", 3);
 		
-        UsbCamera camera = new UsbCamera("cam0",0);
-        camera.setFPS(15);
-        camera.setResolution(320, 240); //320 = width, 240 = height
-        CameraServer.getInstance().startAutomaticCapture(camera);
+//        UsbCamera camera = new UsbCamera("cam0",0);
+//        camera.setFPS(15);
+//        camera.setResolution(320, 240); //320 = width, 240 = height
+//        CameraServer.getInstance().startAutomaticCapture(camera);
 	}
 
 	/**
