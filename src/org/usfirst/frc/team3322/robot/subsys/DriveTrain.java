@@ -92,6 +92,10 @@ public class DriveTrain extends Subsystem {
 	public void drive(double left, double right) {
 		m_robotDrive.arcadeDrive(left, right);
 	}
+	
+	public double getYaw(){
+		return ahrs.getYaw();
+	}
 		
 	public void log() {
 		SmartDashboard.putNumber("Left Distance", m_leftEncoder.getDistance());

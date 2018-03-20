@@ -12,17 +12,17 @@ import org.usfirst.frc.team3322.robot.Robot;
  * command is running. The input is the averaged values of the left and right
  * encoders.
  */
-public class MoveArmToAngle extends Command {
+public class RotateRobot extends Command {
 	private PIDController m_pid;
 
-	public MoveArmToAngle(double angle) {
+	public RotateRobot(double angle) {
 		requires(Robot.m_drivetrain);
 		m_pid = new PIDController(4, 0, 0, new PIDSource() {
 			PIDSourceType m_sourceType = PIDSourceType.kDisplacement;
 
 			@Override
 			public double pidGet() {
-				return 0;
+				return Robot.m_drivetrain.getYaw();
 			}
 
 			@Override
