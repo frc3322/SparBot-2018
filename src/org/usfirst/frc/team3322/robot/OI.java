@@ -6,6 +6,8 @@ import org.usfirst.frc.team3322.robot.commands.ExtendTape;
 import org.usfirst.frc.team3322.robot.commands.Grab;
 import org.usfirst.frc.team3322.robot.commands.MoveArm;
 import org.usfirst.frc.team3322.robot.commands.Release;
+import org.usfirst.frc.team3322.robot.commands.RotateRobot;
+import org.usfirst.frc.team3322.robot.commands.SetArmAngle;
 import org.usfirst.frc.team3322.robot.commands.TapeRetract;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -43,8 +45,9 @@ public class OI {
 		bumper_left.whileHeld(new Climb());		
 		
 		button_back.whenPressed(new DriveDistance(-20));
+		//button_back.whenPressed(new SetArmAngle(10.0));
 		button_start.whileHeld(new TapeRetract());
-		
+		//button_back.whenPressed(new RotateRobot(90));
 	}
 	
 	public Joystick getJoystick() {

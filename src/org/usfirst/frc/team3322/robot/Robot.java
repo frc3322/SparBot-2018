@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team3322.robot;
 
+import org.usfirst.frc.team3322.robot.commands.Autonomous;
 import org.usfirst.frc.team3322.robot.subsys.Arm;
 import org.usfirst.frc.team3322.robot.subsys.Climber;
 import org.usfirst.frc.team3322.robot.subsys.DriveTrain;
@@ -16,6 +17,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -29,6 +31,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 public class Robot extends IterativeRobot { 
+	Command m_autonomousCommand;
 
 	public static DriveTrain m_drivetrain;
 	public static OI m_OI;
@@ -51,6 +54,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("accle Pow", 3);
 		SmartDashboard.putNumber("rotate Pow", 3);
 		
+		m_autonomousCommand = new Autonomous();
+		
 //        UsbCamera camera = new UsbCamera("cam0",0);
 //        camera.setFPS(15);
 //        camera.setResolution(320, 240); //320 = width, 240 = height
@@ -62,7 +67,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		
+		m_autonomousCommand.start();
 	}
 
 	/**
@@ -70,6 +75,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
+		
+		Scheduler.getInstance().run();
+		log();
 
 	}
 
@@ -79,6 +87,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopInit() {
 		m_drivetrain.reset();
+		m_autonomousCommand.cancel();
 	}
 
 	/**

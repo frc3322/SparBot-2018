@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
 import org.usfirst.frc.team3322.robot.Robot;
 
 /**
@@ -17,7 +19,7 @@ public class SetArmAngle extends Command {
 
 	public SetArmAngle(double angle) {
 		requires(Robot.m_arm);
-		m_pid = new PIDController(0.9, 0, 0, new PIDSource() {
+		m_pid = new PIDController(0.3, 0, 0, new PIDSource() {
 			PIDSourceType m_sourceType = PIDSourceType.kDisplacement;
 
 			@Override
@@ -34,10 +36,14 @@ public class SetArmAngle extends Command {
 			public PIDSourceType getPIDSourceType() {
 				return m_sourceType;
 			}
-		}, d -> Robot.m_arm.raiseOrLower(d));
+		}, d -> Robot.m_arm.raiseOrLower(-d));
 
-		m_pid.setAbsoluteTolerance(0.5);
+		m_pid.setAbsoluteTolerance(2);
+		m_pid.setInputRange(5, 295);
+		m_pid.setOutputRange(-0.5, 0.5);
+		m_pid.setContinuous(true);
 		m_pid.setSetpoint(angle);
+		//LiveWindow.addActuator("ArmSystem",  "RotateArm", m_pid);
 	}
 
 	// Called just before this Command runs the first time

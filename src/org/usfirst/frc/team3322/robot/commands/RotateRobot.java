@@ -17,7 +17,7 @@ public class RotateRobot extends Command {
 
 	public RotateRobot(double angle) {
 		requires(Robot.m_drivetrain);
-		m_pid = new PIDController(4, 0, 0, new PIDSource() {
+		m_pid = new PIDController(0.03, 0, 0, new PIDSource() {
 			PIDSourceType m_sourceType = PIDSourceType.kDisplacement;
 
 			@Override
@@ -34,9 +34,12 @@ public class RotateRobot extends Command {
 			public PIDSourceType getPIDSourceType() {
 				return m_sourceType;
 			}
-		}, d -> Robot.m_drivetrain.tankDrive(d, -d));
+		}, d -> Robot.m_drivetrain.tankDrive(-d/2, d/2));
 
-		m_pid.setAbsoluteTolerance(0.5);
+		m_pid.setAbsoluteTolerance(5.0);
+		m_pid.setInputRange(-180.0f,  180.0f);
+		m_pid.setOutputRange(-1.0, 1.0);
+		m_pid.setContinuous(true);
 		m_pid.setSetpoint(angle);
 	}
 
