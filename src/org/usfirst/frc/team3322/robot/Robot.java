@@ -30,14 +30,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot { 
-	Command m_autonomousCommand;
+public class Robot extends IterativeRobot {
 
 	public static DriveTrain m_drivetrain;
 	public static OI m_OI;
 	public static Arm m_arm;
 	public static Climber m_climber;
-		
+
+	private Command m_autonomousCommand;
+	private SendableChooser<Auton.Position> startChooser = new SendableChooser<>();
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -53,6 +54,10 @@ public class Robot extends IterativeRobot {
 		
 		SmartDashboard.putNumber("accle Pow", 3);
 		SmartDashboard.putNumber("rotate Pow", 3);
+
+		startChooser.addDefault("Left", Auton.Position.LEFT);
+		startChooser.addObject("Middle", Auton.Position.MIDDLE);
+		startChooser.addObject("Right", Auton.Position.RIGHT);
 		
 		m_autonomousCommand = new Autonomous();
 		
